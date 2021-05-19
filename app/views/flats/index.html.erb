@@ -1,0 +1,18 @@
+<h2>All our flats (<%= @flats.count %>)</h2>
+<div class="main-container d-flex justify-content-around">
+  <% @flats.each do |flat| %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= flat.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= flat.address %></h6>
+        <p class="card-text">♟<%= flat.number_of_guests %>  💲<%= flat.price_per_night %></p>
+        <div class="card-footer bg-transparent border-success">
+          <a href="/flats/<%=flat.id%>" class="card-link">More info</a>
+          <a href="/flats/<%=flat.id%>/edit" class="card-link ml-3 text-warning">Edit</a>
+          <a data-confirm="Are you sure?" class="card-link euroml-3 text-danger" rel="nofollow" data-method="delete" href="/flats">Remove</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
